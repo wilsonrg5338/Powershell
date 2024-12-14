@@ -1,0 +1,23 @@
+#Change directory to location of text file the script will read from
+    $Path = "C:\Users\Username\Documents"
+
+    cd $Path
+
+#Set variables
+    $YourFile = Get-Content 'FileName.txt'
+
+    $Group1 = "GroupName"
+    $Group2 = "GroupName"
+    $Group3 = "GroupName"
+    $Group4 = "GroupName"
+    $Group5 = "GroupName"
+#Add users to AD groups
+    foreach ($Username in $YourFile)
+    {
+
+    #Add-ADGroupMember -Identity $Group1 -Members $UserName
+    #Add-ADGroupMember -Identity $Group2 -Members $UserName
+    Add-ADGroupMember -Identity $Group3 -Members $UserName
+    #Add-ADGroupMember -Identity $Group4 -Members $UserName
+    #Add-ADGroupMember -Identity $Group5 -Members $PC
+    }
