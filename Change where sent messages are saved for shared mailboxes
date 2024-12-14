@@ -1,0 +1,24 @@
+#Set shared mailbox send as and send on behalf values
+    foreach ($Mailbox in $SharedMailboxes)
+    {
+
+    #Save send on behalf messages to sent files folder
+        Set-Mailbox -Identity $Mailbox -MessageCopyForSendOnBehalfEnabled $True
+
+    #Save send as messages to sent files folder
+        Set-Mailbox -Identity $Mailbox -MessageCopyForSentAsEnabled $True
+    
+    }
+
+
+#Get shared mailbox send on behalf and sent as enabled values
+    foreach ($Mailbox in $SharedMailboxes)
+    {
+
+    #Save send on behalf messages to sent files folder
+        Get-Mailbox -Identity $Mailbox | select-object MessageCopyForSendOnBehalfEnabled 
+
+    #Save send as messages to sent files folder
+        Get-Mailbox -Identity $Mailbox | select-object MessageCopyForSentAsEnabled
+    
+    }
