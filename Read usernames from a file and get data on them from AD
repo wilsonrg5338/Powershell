@@ -1,0 +1,15 @@
+#Change directory to location of text file the script will read from
+    cd "C:\Users\Username\Downloads\"
+
+#Set Variable for file to read from
+    $YourFile = Get-Content 'Filename.txt'
+
+#Begin For loop to loop through Names in text file
+    foreach ($Name in $YourFile)
+    {
+
+    $UserInfo = get-aduser -Filter "Name -eq '$Name'" -Properties * | Select-Object Name, SamAccountName, EmailAddress | fl
+    
+    Write-Output $UserInfo
+
+}
